@@ -35,7 +35,7 @@ func (m *Greeting) Reset()         { *m = Greeting{} }
 func (m *Greeting) String() string { return proto.CompactTextString(m) }
 func (*Greeting) ProtoMessage()    {}
 func (*Greeting) Descriptor() ([]byte, []int) {
-	return fileDescriptor_greet_0b113c2986c982df, []int{0}
+	return fileDescriptor_greet_287c52ec8bfe89a3, []int{0}
 }
 func (m *Greeting) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Greeting.Unmarshal(m, b)
@@ -80,7 +80,7 @@ func (m *GreetRequest) Reset()         { *m = GreetRequest{} }
 func (m *GreetRequest) String() string { return proto.CompactTextString(m) }
 func (*GreetRequest) ProtoMessage()    {}
 func (*GreetRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_greet_0b113c2986c982df, []int{1}
+	return fileDescriptor_greet_287c52ec8bfe89a3, []int{1}
 }
 func (m *GreetRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GreetRequest.Unmarshal(m, b)
@@ -118,7 +118,7 @@ func (m *GreetResponse) Reset()         { *m = GreetResponse{} }
 func (m *GreetResponse) String() string { return proto.CompactTextString(m) }
 func (*GreetResponse) ProtoMessage()    {}
 func (*GreetResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_greet_0b113c2986c982df, []int{2}
+	return fileDescriptor_greet_287c52ec8bfe89a3, []int{2}
 }
 func (m *GreetResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GreetResponse.Unmarshal(m, b)
@@ -225,9 +225,9 @@ var _GreetService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "greet/greetpb/greet.proto",
 }
 
-func init() { proto.RegisterFile("greet/greetpb/greet.proto", fileDescriptor_greet_0b113c2986c982df) }
+func init() { proto.RegisterFile("greet/greetpb/greet.proto", fileDescriptor_greet_287c52ec8bfe89a3) }
 
-var fileDescriptor_greet_0b113c2986c982df = []byte{
+var fileDescriptor_greet_287c52ec8bfe89a3 = []byte{
 	// 203 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4c, 0x2f, 0x4a, 0x4d,
 	0x2d, 0xd1, 0x07, 0x93, 0x05, 0x49, 0x10, 0x5a, 0xaf, 0xa0, 0x28, 0xbf, 0x24, 0x5f, 0x88, 0x15,
