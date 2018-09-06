@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"log"
 
 	"github.com/max-prosper/grpc-go-practice/calculator/calcpb"
@@ -19,11 +20,12 @@ func main() {
 	}
 	defer cc.Close()
 
-	c := calcpb.NewSumServceClient(cc)
-	doSum(c)
+	c := calcpb.NewCalculatorServiceClient(cc)
+	// doSum(c)
+	doServerStreaming(c)
 }
 
-func doSum(c calcpb.SumServceClient) {
+func doSum(c calcpb.CalculatorServiceClient) {
 	fmt.Println("Starting to do a Unary RPC...")
 	req := &calcpb.SumRequest{
 		IntOne: 5,
@@ -33,5 +35,26 @@ func doSum(c calcpb.SumServceClient) {
 	if err != nil {
 		log.Fatalf("Error while calling Sum RPC: %v", err)
 	}
-	log.Printf("Response form Sum: %v", res.Result)
+	log.Printf("Response from Sum: %v", res.Result)
+}
+
+func doServerStreaming(c calcpb.CalculatorServiceClient) {
+	fmt.Println("Starting to do a PrimeDecomposition Server Streaming RPC...")
+	req := &calcpb.PrimeNumberDecompositionRequest{
+		Number: int64(120),
+	}
+	stream, err := c.PrimeNumberDecomposition(context.Background(), req)
+	if err != nil {
+		log.Fatalf("Error while calling PrimeDecomposition Server Streaming RPC: %v", err)
+	}
+	for {
+		res, err := stream.Recv()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatalf("Something bad happened: %v", err)
+		}
+		fmt.Println(res.GetPrimeFactor())
+	}
 }
