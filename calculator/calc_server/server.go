@@ -5,11 +5,15 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"math"
 	"net"
+
+	"google.golang.org/grpc/codes"
 
 	"github.com/max-prosper/grpc-go-practice/calculator/calcpb"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/status"
 )
 
 type server struct{}
@@ -67,6 +71,7 @@ func (*server) ComputeAverage(stream calcpb.CalculatorService_ComputeAverageServ
 }
 
 func (*server) FindMaximum(stream calcpb.CalculatorService_FindMaximumServer) error {
+	fmt.Printf("FindMaximum function was invoked\n")
 	maximum := int32(0)
 
 	for {
@@ -89,6 +94,19 @@ func (*server) FindMaximum(stream calcpb.CalculatorService_FindMaximumServer) er
 			}
 		}
 	}
+}
+
+func (*server) SquareRoot(ctx context.Context, req *calcpb.SquareRootRequest) (*calcpb.SquareRootResponse, error) {
+	fmt.Printf("SquareRoot function was invoked\n")
+	number := req.GetNumber()
+
+	if number < 0 {
+		return nil, status.Errorf(codes.InvalidArgument, fmt.Sprintf("Received a negative number: %v", number))
+	}
+
+	return &calcpb.SquareRootResponse{
+		NumberRoot: math.Sqrt(float64(number)),
+	}, nil
 }
 
 func main() {
