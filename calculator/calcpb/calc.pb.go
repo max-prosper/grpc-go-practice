@@ -35,7 +35,7 @@ func (m *SumRequest) Reset()         { *m = SumRequest{} }
 func (m *SumRequest) String() string { return proto.CompactTextString(m) }
 func (*SumRequest) ProtoMessage()    {}
 func (*SumRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{0}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{0}
 }
 func (m *SumRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SumRequest.Unmarshal(m, b)
@@ -80,7 +80,7 @@ func (m *SumResponse) Reset()         { *m = SumResponse{} }
 func (m *SumResponse) String() string { return proto.CompactTextString(m) }
 func (*SumResponse) ProtoMessage()    {}
 func (*SumResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{1}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{1}
 }
 func (m *SumResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SumResponse.Unmarshal(m, b)
@@ -118,7 +118,7 @@ func (m *PrimeNumberDecompositionRequest) Reset()         { *m = PrimeNumberDeco
 func (m *PrimeNumberDecompositionRequest) String() string { return proto.CompactTextString(m) }
 func (*PrimeNumberDecompositionRequest) ProtoMessage()    {}
 func (*PrimeNumberDecompositionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{2}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{2}
 }
 func (m *PrimeNumberDecompositionRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PrimeNumberDecompositionRequest.Unmarshal(m, b)
@@ -156,7 +156,7 @@ func (m *PrimeNumberDecompositionResponse) Reset()         { *m = PrimeNumberDec
 func (m *PrimeNumberDecompositionResponse) String() string { return proto.CompactTextString(m) }
 func (*PrimeNumberDecompositionResponse) ProtoMessage()    {}
 func (*PrimeNumberDecompositionResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{3}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{3}
 }
 func (m *PrimeNumberDecompositionResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PrimeNumberDecompositionResponse.Unmarshal(m, b)
@@ -194,7 +194,7 @@ func (m *ComputeAverageRequest) Reset()         { *m = ComputeAverageRequest{} }
 func (m *ComputeAverageRequest) String() string { return proto.CompactTextString(m) }
 func (*ComputeAverageRequest) ProtoMessage()    {}
 func (*ComputeAverageRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{4}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{4}
 }
 func (m *ComputeAverageRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ComputeAverageRequest.Unmarshal(m, b)
@@ -232,7 +232,7 @@ func (m *ComputeAverageResponse) Reset()         { *m = ComputeAverageResponse{}
 func (m *ComputeAverageResponse) String() string { return proto.CompactTextString(m) }
 func (*ComputeAverageResponse) ProtoMessage()    {}
 func (*ComputeAverageResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{5}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{5}
 }
 func (m *ComputeAverageResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ComputeAverageResponse.Unmarshal(m, b)
@@ -270,7 +270,7 @@ func (m *FindMaximumRequest) Reset()         { *m = FindMaximumRequest{} }
 func (m *FindMaximumRequest) String() string { return proto.CompactTextString(m) }
 func (*FindMaximumRequest) ProtoMessage()    {}
 func (*FindMaximumRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{6}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{6}
 }
 func (m *FindMaximumRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_FindMaximumRequest.Unmarshal(m, b)
@@ -308,7 +308,7 @@ func (m *FindMaximumResponse) Reset()         { *m = FindMaximumResponse{} }
 func (m *FindMaximumResponse) String() string { return proto.CompactTextString(m) }
 func (*FindMaximumResponse) ProtoMessage()    {}
 func (*FindMaximumResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{7}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{7}
 }
 func (m *FindMaximumResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_FindMaximumResponse.Unmarshal(m, b)
@@ -346,7 +346,7 @@ func (m *SquareRootRequest) Reset()         { *m = SquareRootRequest{} }
 func (m *SquareRootRequest) String() string { return proto.CompactTextString(m) }
 func (*SquareRootRequest) ProtoMessage()    {}
 func (*SquareRootRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{8}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{8}
 }
 func (m *SquareRootRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SquareRootRequest.Unmarshal(m, b)
@@ -384,7 +384,7 @@ func (m *SquareRootResponse) Reset()         { *m = SquareRootResponse{} }
 func (m *SquareRootResponse) String() string { return proto.CompactTextString(m) }
 func (*SquareRootResponse) ProtoMessage()    {}
 func (*SquareRootResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_calc_ceb500b7f15aa7de, []int{9}
+	return fileDescriptor_calc_aa142a6fba3665fd, []int{9}
 }
 func (m *SquareRootResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SquareRootResponse.Unmarshal(m, b)
@@ -445,6 +445,8 @@ type CalculatorServiceClient interface {
 	// BiDi Streaming
 	FindMaximum(ctx context.Context, opts ...grpc.CallOption) (CalculatorService_FindMaximumClient, error)
 	// Error Handling
+	// This RPC will throw an exeption if the sent number is negative
+	// The error being sent is of type INVALID_ARGUMENT
 	SquareRoot(ctx context.Context, in *SquareRootRequest, opts ...grpc.CallOption) (*SquareRootResponse, error)
 }
 
@@ -582,6 +584,8 @@ type CalculatorServiceServer interface {
 	// BiDi Streaming
 	FindMaximum(CalculatorService_FindMaximumServer) error
 	// Error Handling
+	// This RPC will throw an exeption if the sent number is negative
+	// The error being sent is of type INVALID_ARGUMENT
 	SquareRoot(context.Context, *SquareRootRequest) (*SquareRootResponse, error)
 }
 
@@ -732,9 +736,9 @@ var _CalculatorService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "calculator/calcpb/calc.proto",
 }
 
-func init() { proto.RegisterFile("calculator/calcpb/calc.proto", fileDescriptor_calc_ceb500b7f15aa7de) }
+func init() { proto.RegisterFile("calculator/calcpb/calc.proto", fileDescriptor_calc_aa142a6fba3665fd) }
 
-var fileDescriptor_calc_ceb500b7f15aa7de = []byte{
+var fileDescriptor_calc_aa142a6fba3665fd = []byte{
 	// 422 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x53, 0x5d, 0x6f, 0xd3, 0x30,
 	0x14, 0x25, 0x94, 0x65, 0xe8, 0x06, 0x21, 0x6a, 0x44, 0x17, 0xc2, 0xa4, 0x0d, 0x4b, 0x43, 0x93,
