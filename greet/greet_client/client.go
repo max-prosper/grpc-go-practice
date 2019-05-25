@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello, I'm a client")
+	fmt.Println("\nHello from gRPC client!")
 	cc, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Could not connect: %v", err)
@@ -24,17 +24,17 @@ func main() {
 	defer cc.Close()
 
 	c := greetpb.NewGreetServiceClient(cc)
-	//fmt.Printf("Created client: %f", c)
+	// fmt.Printf("Created client: %f", c)
 	// doUnary(c)
 	// doServerStreaming(c)
 	// doClientStreaming(c)
-	// doBiDiStreaming(c)
-	doUnaryWithDeadline(c, 5*time.Second) // should complete
-	doUnaryWithDeadline(c, 1*time.Second) // should timeout
+	doBiDiStreaming(c)
+	// doUnaryWithDeadline(c, 5*time.Second) // should complete
+	// doUnaryWithDeadline(c, 1*time.Second) // should timeout
 }
 
 func doUnary(c greetpb.GreetServiceClient) {
-	fmt.Println("Starting to do a Unary RPC...")
+	fmt.Println("\nStarting to do a Unary RPC...")
 	req := &greetpb.GreetRequest{
 		Greeting: &greetpb.Greeting{
 			FirstName: "Max",
@@ -43,13 +43,13 @@ func doUnary(c greetpb.GreetServiceClient) {
 	}
 	res, err := c.Greet(context.Background(), req)
 	if err != nil {
-		log.Fatalf("Error while calling Greet RPC: %v", err)
+		log.Fatalf("\nError while calling Greet RPC: %v\n", err)
 	}
-	log.Printf("Response form Greeet: %v", res.Result)
+	log.Printf("\n\nResponse form Greet: %v\n\n", res.Result)
 }
 
 func doServerStreaming(c greetpb.GreetServiceClient) {
-	fmt.Println("Starting to do a Server Streaming RPC...")
+	fmt.Println("\nStarting to do a Server Streaming RPC...")
 
 	req := &greetpb.GreetManyTimesRequest{
 		Greeting: &greetpb.Greeting{
@@ -69,12 +69,12 @@ func doServerStreaming(c greetpb.GreetServiceClient) {
 		if err != nil {
 			log.Fatalf("Error while reading stream: %v", err)
 		}
-		log.Printf("Response form GreetManyTimes: %v", msg.GetResult())
+		log.Printf("\n\nResponse form GreetManyTimes: %v\n", msg.GetResult())
 	}
 }
 
 func doClientStreaming(c greetpb.GreetServiceClient) {
-	fmt.Println("Starting to do a Client Streaming RPC...")
+	fmt.Println("\nStarting to do a Client Streaming RPC...")
 
 	requests := []*greetpb.LongGreetRequest{
 		&greetpb.LongGreetRequest{
@@ -110,7 +110,7 @@ func doClientStreaming(c greetpb.GreetServiceClient) {
 	}
 
 	for _, req := range requests {
-		fmt.Printf("Sending req: %v\n", req)
+		fmt.Printf("\nSending req: %v\n", req)
 		stream.Send(req)
 		time.Sleep(100 * time.Millisecond)
 	}
@@ -119,11 +119,11 @@ func doClientStreaming(c greetpb.GreetServiceClient) {
 	if err != nil {
 		log.Fatalf("Error while receiving response from LongGreet: %v\n", err)
 	}
-	fmt.Printf("LongGreet Response: %v\n", res)
+	fmt.Printf("\nLongGreet Response: %v\n", res)
 }
 
 func doBiDiStreaming(c greetpb.GreetServiceClient) {
-	fmt.Println("Starting to do a BiDi Client Streaming RPC...")
+	fmt.Println("\nStarting to do a BiDi Client Streaming RPC...")
 
 	requests := []*greetpb.GreetEveryoneRequest{
 		&greetpb.GreetEveryoneRequest{
@@ -162,7 +162,7 @@ func doBiDiStreaming(c greetpb.GreetServiceClient) {
 	// send a bunch of messages
 	go func() {
 		for _, req := range requests {
-			fmt.Printf("Sending message: %v\n", req)
+			fmt.Printf("\nSending message: %v\n", req)
 			stream.Send(req)
 			time.Sleep(100 * time.Millisecond)
 		}
@@ -180,7 +180,7 @@ func doBiDiStreaming(c greetpb.GreetServiceClient) {
 				log.Fatalf("Error while receiving strema: %v\n", err)
 				break
 			}
-			fmt.Printf("Received: %v\n", res.GetResult())
+			fmt.Printf("\nReceived: %v\n", res.GetResult())
 		}
 		close(waitch)
 	}()
@@ -189,7 +189,7 @@ func doBiDiStreaming(c greetpb.GreetServiceClient) {
 }
 
 func doUnaryWithDeadline(c greetpb.GreetServiceClient, timeout time.Duration) {
-	fmt.Println("Starting to do a UnaryWithDeadline RPC...")
+	fmt.Println("\nStarting to do a UnaryWithDeadline RPC...")
 	req := &greetpb.GreetWithDeadlineRequest{
 		Greeting: &greetpb.Greeting{
 			FirstName: "Max",
@@ -204,7 +204,7 @@ func doUnaryWithDeadline(c greetpb.GreetServiceClient, timeout time.Duration) {
 		statusErr, ok := status.FromError(err)
 		if ok {
 			if statusErr.Code() == codes.DeadlineExceeded {
-				fmt.Println("Timeout was hit! Deadline was exceded")
+				fmt.Println("\nTimeout was hit! Deadline was exceded")
 			} else {
 				fmt.Printf("Unexpected error: %v\n", statusErr)
 			}
@@ -213,5 +213,5 @@ func doUnaryWithDeadline(c greetpb.GreetServiceClient, timeout time.Duration) {
 		}
 		return
 	}
-	log.Printf("Response form GreeetWithDeadline: %v", res.Result)
+	log.Printf("\n\nResponse form GreeetWithDeadline: %v\n", res.Result)
 }
